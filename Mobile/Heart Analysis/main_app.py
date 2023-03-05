@@ -15,8 +15,8 @@ age = 7
 name = ""
 p1, p2, p3 = 0, 0, 0
 
-Window.clearcolor = (0.8, 0.53, 0.84, 0.4)
-btn_color = ()
+Window.clearcolor = (0.5, 0.53, 0.84, 0.4)
+btn_color = (0.18, 0.21, 0.8, 1)
 def check_int(str_num):
     try:
         return int(str_num)
@@ -33,6 +33,7 @@ class InScr(Screen):
         lbl2 = Label(text="Введите возраст:", halign="right")
         self.in_age = TextInput(text="7", multiline=False)
         self.btn = Button(text="Начать", size_hint=(0.3, 0.2), pos_hint={"center_x": 0.5})
+        self.btn.background_color = btn_color
         self.btn.on_press = self.next
         line1 = BoxLayout(size_hint=(0.8, None), height="30sp")
         line2 = BoxLayout(size_hint=(0.8, None), height="30sp")
@@ -66,7 +67,6 @@ class PulseScreen(Screen):
         instr = Label(text=txt_test1)
         self.lbl_sec = Seconds(15)
         self.lbl_sec.bind(done=self.sec_finished)
-
         line1 = BoxLayout(size_hint=(0.8, None), height="30sp")
         lbl_result = Label(text="Введите результат:", halign="right")
         self.in_result = TextInput(text="0", multiline=False)
@@ -76,6 +76,7 @@ class PulseScreen(Screen):
         line1.add_widget(self.in_result)
         self.btn = Button(text="Продолжить", size_hint=(0.3, 0.2), pos_hint={"center_x": 0.5})
         self.btn.on_press = self.next
+        self.btn.background_color = btn_color
         outer = BoxLayout(orientation="vertical", padding=8,spacing=8)
         outer.add_widget(instr)
         outer.add_widget(self.lbl_sec)
@@ -114,7 +115,7 @@ class CheakSits(Screen):
         outer.add_widget(instr)
         outer.add_widget(self.btn)
         self.add_widget(outer)
-
+        self.btn.background_color = btn_color
     def next(self):
         self.manager.current = "pulse2"
 
@@ -148,6 +149,7 @@ class PulseScr2(Screen):
 
         self.btn = Button(text='Начать', size_hint=(0.3, 0.2), pos_hint={'center_x': 0.5})
         self.btn.on_press = self.next
+        self.btn.background_color = btn_color
         outer = BoxLayout(orientation='vertical', padding=8, spacing=8)
         outer.add_widget(instr)
         outer.add_widget(self.lbl1)
