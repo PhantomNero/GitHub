@@ -15,7 +15,7 @@ age = 7
 name = ""
 p1, p2, p3 = 0, 0, 0
 
-Window.clearcolor = (0.5, 0.53, 0.84, 0.4)
+Window.clearcolor = (0.5, 0.55, 0.84, 0.4)
 btn_color = (0.18, 0.21, 0.8, 1)
 def check_int(str_num):
     try:
