@@ -16,7 +16,7 @@ name = ""
 p1, p2, p3 = 0, 0, 0
 
 Window.clearcolor = (0.8, 0.53, 0.84, 0.4)
-
+btn_color = ()
 def check_int(str_num):
     try:
         return int(str_num)
