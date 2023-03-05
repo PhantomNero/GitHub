@@ -84,6 +84,7 @@ class PulseScreen(Screen):
         self.add_widget(outer)
 
     def sec_finished(self, *args):
+
         self.next_screen = True
         self.in_result.set_disabled(False)
         self.btn.set_disabled(False)
