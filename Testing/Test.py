@@ -1,4 +1,4 @@
-# g g g g g g
+# g g g g g g g
 from tkinter import *
 from tkinter import messagebox
 import random
