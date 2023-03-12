@@ -7,9 +7,12 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.textinput import TextInput
 
-from instructions import txt_instruction, txt_test1, txt_sits, txt_test3
+from instructions import txt_instruction, txt_test1, txt_sits, txt_test3, txt_test2
 from ruffier import test
 from seconds import Seconds
+from sits import Sits
+from runner import Runner
+
 
 age = 7
 name = ""
@@ -108,16 +111,40 @@ class PulseScreen(Screen):
 class CheakSits(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        instr = Label(text=txt_sits)
-        self.btn = Button(text="Продолжить", size_hint=(0.3, 0.2), pos_hint={"center_x": 0.5})
+        self.next_screen = False
+
+        instr = Label(text=txt_sits, size_hint=(0.5, 1))
+        self.lbl_sits = Sits(10)
+        self.run = Runner(total=30, steptime=1.5, size_hint=(0.5, 1))
+        self.run.bind(finished=self.run_finished)
+
+        line = BoxLayout()
+        vlay = BoxLayout(orientation="horizontal", size_hint=(0.3, 1))
+        vlay.add_widget(self.lbl_sits)
+        line.add_widget(instr)
+        line.add_widget(vlay)
+        line.add_widget(self.run)
+
+        self.btn = Button(text="Начать", size_hint=(0.3, 0.2), pos_hint={"center_x": 0.5})
+        self.btn.background_color = btn_color
         self.btn.on_press = self.next
+
         outer = BoxLayout(orientation="vertical", padding=8, spacing=8)
-        outer.add_widget(instr)
+        outer.add_widget(line)
         outer.add_widget(self.btn)
         self.add_widget(outer)
-        self.btn.background_color = btn_color
     def next(self):
-        self.manager.current = "pulse2"
+        if not self.set_disabled(True):
+            self.run.start()
+            self.run.bind(value=self.lbl_sits.next)
+        else:
+            self.manager.current = "pulse2"
+
+    def run_finished(self):
+        self.btn.set_disabled(False)
+        self.btn.text = "Продолжить"
+        self.next_screen = True
+
 
 
 class PulseScr2(Screen):

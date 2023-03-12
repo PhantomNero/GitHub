@@ -1,5 +1,5 @@
 # напиши модуль для подсчета количества приседаний
-
+from kivy.uix.label import Label
 class Sits(Label):
     
     def __init__(self, total, **kwargs):
