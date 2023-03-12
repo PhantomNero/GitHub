@@ -114,7 +114,7 @@ class CheakSits(Screen):
         self.next_screen = False
 
         instr = Label(text=txt_sits, size_hint=(0.5, 1))
-        self.lbl_sits = Sits(10)
+        self.lbl_sits = Sits(30)
         self.run = Runner(total=30, steptime=1.5, size_hint=(0.5, 1))
         self.run.bind(finished=self.run_finished)
 
@@ -134,7 +134,7 @@ class CheakSits(Screen):
         outer.add_widget(self.btn)
         self.add_widget(outer)
     def next(self):
-        if not self.set_disabled(True):
+        if not self.next_screen(True):
             self.run.start()
             self.run.bind(value=self.lbl_sits.next)
         else:
