@@ -134,7 +134,7 @@ class CheakSits(Screen):
         outer.add_widget(self.btn)
         self.add_widget(outer)
     def next(self):
-        if not self.next_screen(True):
+        if not self.next_screen:
             self.run.start()
             self.run.bind(value=self.lbl_sits.next)
         else:
