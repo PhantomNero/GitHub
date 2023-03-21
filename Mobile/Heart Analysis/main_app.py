@@ -113,15 +113,16 @@ class CheckSits(Screen):
         super().__init__(**kwargs)
         self.next_screen = False
 
-        instr = Label(text=txt_sits, size_hint=(0.5, 1) )
+        instr = Label(text=txt_sits, size_hint=(0.5, 1))
         self.lbl_sits = Sits(30)
-        self.run = Runner(total=30, steptime=1.5, size_hint=(0.5, 1))
+        self.run = Runner(total=30, steptime=1.5, size_hint=(0.3, 1))
         self.run.bind(finished=self.run_finished)
 
         line = BoxLayout(orientation="horizontal")
         vlay = BoxLayout(orientation="vertical", size_hint=(0.3, 1))
+        vlay.add_widget(instr)
         vlay.add_widget(self.lbl_sits)
-        line.add_widget(instr)
+
         line.add_widget(vlay)
         line.add_widget(self.run)
 
@@ -134,7 +135,7 @@ class CheckSits(Screen):
         outer.add_widget(self.btn)
         self.add_widget(outer)
     def next(self):
-        if not self.next_screen:
+        if not self.set_disabled(True):
             self.run.start()
             self.run.bind(value=self.lbl_sits.next)
         else:
