@@ -68,7 +68,7 @@ class PulseScreen(Screen):
         self.next_screen = False
 
         instr = Label(text=txt_test1)
-        self.lbl_sec = Seconds(15)
+        self.lbl_sec = Seconds(1)
         self.lbl_sec.bind(done=self.sec_finished)
         line1 = BoxLayout(size_hint=(0.8, None), height="30sp")
         lbl_result = Label(text="Введите результат:", halign="right")
@@ -108,18 +108,18 @@ class PulseScreen(Screen):
                 self.manager.current = "sits"
 
 
-class CheakSits(Screen):
+class CheckSits(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.next_screen = False
 
-        instr = Label(text=txt_sits, size_hint=(0.5, 1))
+        instr = Label(text=txt_sits, size_hint=(0.5, 1) )
         self.lbl_sits = Sits(30)
         self.run = Runner(total=30, steptime=1.5, size_hint=(0.5, 1))
         self.run.bind(finished=self.run_finished)
 
-        line = BoxLayout()
-        vlay = BoxLayout(orientation="horizontal", size_hint=(0.3, 1))
+        line = BoxLayout(orientation="horizontal")
+        vlay = BoxLayout(orientation="vertical", size_hint=(0.3, 1))
         vlay.add_widget(self.lbl_sits)
         line.add_widget(instr)
         line.add_widget(vlay)
@@ -154,7 +154,7 @@ class PulseScr2(Screen):
         super().__init__(**kwargs)
 
         instr = Label(text=txt_test3)
-        self.lbl_sec = Seconds(15)
+        self.lbl_sec = Seconds(3)
         self.lbl_sec.bind(done=self.sec_finished)
         self.lbl1 = Label(text="Считаем пульс")
 
@@ -241,7 +241,7 @@ class HeartCheak(App):
         sm.add_widget(InScr(name="instr"))
         sm.add_widget(PulseScreen(name="pulse1"))
         sm.add_widget(PulseScr2(name="pulse2"))
-        sm.add_widget(CheakSits(name="sits"))
+        sm.add_widget(CheckSits(name="sits"))
         sm.add_widget(Result(name="result"))
         return sm
 
