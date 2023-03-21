@@ -79,7 +79,7 @@ class ThirdScr(Screen):
         super().__init__(**kwargs)
         layout = BoxLayout(orientation='vertical')
         btn_back = ScrButton(self, direction='down', goal='main', text="Назад", size_hint=(1, None), height='40sp')
-        test_label = Label(text="Твой собственный экран")
+        test_label = Label(text="Цой жив.")
         layout.add_widget(test_label)
         layout.add_widget(btn_back)
         self.add_widget(layout)
