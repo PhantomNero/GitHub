@@ -13,13 +13,14 @@ from seconds import Seconds
 from sits import Sits
 from runner import Runner
 
-
 age = 7
 name = ""
 p1, p2, p3 = 0, 0, 0
 
 Window.clearcolor = (0.5, 0.55, 0.84, 0.4)
 btn_color = (0.18, 0.21, 0.8, 1)
+
+
 def check_int(str_num):
     try:
         return int(str_num)
@@ -80,7 +81,7 @@ class PulseScreen(Screen):
         self.btn = Button(text="Продолжить", size_hint=(0.3, 0.2), pos_hint={"center_x": 0.5})
         self.btn.on_press = self.next
         self.btn.background_color = btn_color
-        outer = BoxLayout(orientation="vertical", padding=8,spacing=8)
+        outer = BoxLayout(orientation="vertical", padding=8, spacing=8)
         outer.add_widget(instr)
         outer.add_widget(self.lbl_sec)
         outer.add_widget(line1)
@@ -134,8 +135,9 @@ class CheckSits(Screen):
         outer.add_widget(line)
         outer.add_widget(self.btn)
         self.add_widget(outer)
+
     def next(self):
-        if not self.set_disabled(True):
+        if not self.set_disabled(True):  # if not self.next_screen: ,то работает ,но перехода не будет
             self.run.start()
             self.run.bind(value=self.lbl_sits.next)
         else:
@@ -145,7 +147,6 @@ class CheckSits(Screen):
         self.btn.set_disabled(False)
         self.btn.text = "Продолжить"
         self.next_screen = True
-
 
 
 class PulseScr2(Screen):
@@ -159,7 +160,6 @@ class PulseScr2(Screen):
         self.lbl_sec.bind(done=self.sec_finished)
         self.lbl1 = Label(text="Считаем пульс")
 
-
         line1 = BoxLayout(size_hint=(0.8, None), height='30sp')
         lbl_result1 = Label(text='Результат:', halign='right')
         self.in_result1 = TextInput(text='0', multiline=False)
@@ -171,7 +171,7 @@ class PulseScr2(Screen):
         self.in_result2 = TextInput(text='0', multiline=False)
 
         self.in_result1.set_disabled(True)
-        self.in_result2 .set_disabled(True)
+        self.in_result2.set_disabled(True)
         line2.add_widget(lbl_result2)
         line2.add_widget(self.in_result2)
 
@@ -205,7 +205,6 @@ class PulseScr2(Screen):
                 self.btn.text = "Завершить"
                 self.next_screen = True
 
-
     def next(self):
         if not self.next_screen:
             self.btn.dec_disabled(True)
@@ -222,6 +221,8 @@ class PulseScr2(Screen):
                 self.in_result1.text = str(p3)
             else:
                 self.manager.current = "result"
+
+
 class Result(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
