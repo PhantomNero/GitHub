@@ -20,10 +20,14 @@ print('\n', '#' * 100, '\n')
 
 # Укажите среднее арифметическое и медиану размера приложений (Size)
 # Сколько стоит самое дорогое приложение?
+print('\n', '*' * 100, '\n')
+min_size = (df["Installs"].mean())
+min_size2 = (df["Installs"].median())
+print(min_size)
+print(min_size2)
+print('\n', '*' * 100, '\n')
 # *Укажите среднее арифметическое и медиану количества установок приложений (Installs)
 
 print(df.describe())
 
 
-
-print(df.mean())
