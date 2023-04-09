@@ -1,16 +1,36 @@
 import pandas as pd
 df = pd.read_csv('GooglePlayStore_wild.csv')
 # Выведи информацию о всем DataFrame, чтобы узнать какие столбцы нуждаются в очистке
-# Выведи информацию о всем DataFrame, чтобы узнать, какие столбцы нуждаются в очистке
 # Сколько в датасете приложений, у которых не указан ('NaN') рейтинг ('Rating')?
-
+#print(df.info())
 # Замени пустое значение ('NaN') рейтинга ('Rating') для таких приложений на -1.
-
+#print(df[pd.isnull(df["Rating"])])
 # Определи, какое ещё значение размера ('Size') хранится в датасете помимо Килобайтов и Мегабайтов, замени его на -1.
 # Преобразуй размеры приложений ('Size') в числовой формат (float). Размер всех приложений должен измеряться в Мегабайтах.
-
 # Чему равен максимальный размер ('Size') приложений из категории ('Category') 'TOOLS'?
+#print(df[df['Category'] == 'TOOLS']['Size'].max())
 
+pd.set_option('display.max_rows', 10840)
+#print(a)
+tp = (df[(df["Category"] == "TOOLS")])["Size"].max()
+
+sm3 = df[(df["Category"] == "TOOLS") & (df["Category"] != "Varies with device")]["Size"].max()
+
+#print(sm3)
+
+#print(df["Size"].value_counts())
+#print(tp)
+
+def set_size(size):
+    if size[-1] == "M":
+        return float(size[:-1])
+    if size[-1] == "k":
+        return float(size[:-1]) / 1024
+    return -1
+
+df["Size"] = df["Size"].apply(set_size).max()
+#print(df["Size"].value_counts())
+print(df[df['Category'] == 'TOOLS']['Size'].max())
 # Бонусные задания
 # Замени тип данных на целочисленный (int) для количества установок ('Installs').
 # В записи количества установок ('Installs') знак "+" необходимо игнорировать.

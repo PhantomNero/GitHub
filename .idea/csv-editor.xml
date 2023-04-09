@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\GoogleApps\level_5\GooglePlayStore_wild.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
