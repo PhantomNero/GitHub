@@ -2,31 +2,40 @@ import pandas as pd
 
 df = pd.read_csv('GoogleApps.csv')
 
+result = df[df["Rating"] > 4.5]["Category"].value_counts()
+print(result["FINANCE"])
+
+
+result1 = df[(df["Category"] == "GAME") & (df["Rating"] > 4.9)]["Type"].value_counts()
+print(result1)
+
+
+
 # 1 Выведи на экран минимальный, средний и максимальный рейтинг ('Rating') платных и бесплатных приложений ('Type') с точностью до десятых.
 # temp = df.pivot_table(columns="Category", index="Type", values="Rating", aggfunc=[min, max])
-#mins1 = (df[(df["Type"] != "Paid")]["Content Rating"])
-#means1 = (df[(df["Type"] != "Paid")]["Content Rating"])
-#maxs1 = (df[(df["Type"] != "Paid")]["Content Rating"])
+# mins1 = (df[(df["Type"] != "Paid")]["Content Rating"])
+# means1 = (df[(df["Type"] != "Paid")]["Content Rating"])
+# maxs1 = (df[(df["Type"] != "Paid")]["Content Rating"])
 # mins1 = round(mins1, 1)
 # means1 = round(means1, 1)
 # maxs1 = round(maxs1, 1)
-#print(mins1)
-#print(means1)
-#print(maxs1)
+# print(mins1)
+# print(means1)
+# print(maxs1)
 
-#print("Т" * 100)
-#mins = (df[(df["Type"] == "Paid")]["Content Rating"])
-#means = (df[(df["Type"] == "Paid")]["Content Rating"])
-#maxs = (df[(df["Type"] == "Paid")]["Content Rating"])
+# print("Т" * 100)
+# mins = (df[(df["Type"] == "Paid")]["Content Rating"])
+# means = (df[(df["Type"] == "Paid")]["Content Rating"])
+# maxs = (df[(df["Type"] == "Paid")]["Content Rating"])
 ## mins = round(mins, 1)
 # maxs = round(maxs, 1)
 # means = round(means, 1)
-#print(mins)
-#print(means)
-#print(maxs)
+# print(mins)
+# print(means)
+# print(maxs)
 
-#tempw = df.pivot_table(columns="Content Rating", index="Category", values="Price", aggfunc=[min])
-#print(tempw)
+# tempw = df.pivot_table(columns="Content Rating", index="Category", values="Price", aggfunc=[min])
+# print(tempw)
 # 2 Выведи на экран минимальную, медианную (median) и максимальную цену ('Price') платных приложений (Type == 'Paid') для
 # разных целевых аудиторий ('Content Rating')
 
@@ -45,5 +54,5 @@ df = pd.read_csv('GoogleApps.csv')
 # Выбери названия категорий, в которых есть платные приложения для всех возрастных групп и расположи их в алфавитном порядке.
 
 # Бонусная задача. Найди категории бесплатных (Type == 'Free') приложений, 
-tempw = df.pivot_table(columns="Content Rating", index="Category", values="Price", aggfunc=[min])
-print(tempw)
+# tempw = df.pivot_table(columns="Content Rating", index="Category", values="Price", aggfunc=[min])
+# print(tempw)
