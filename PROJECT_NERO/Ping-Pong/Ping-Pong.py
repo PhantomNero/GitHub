@@ -1,8 +1,6 @@
 from tkinter import *
-# импортируем библиотеку random
 import random
 
-# Добавляем глобальные переменные
 
 # глобальные переменные
 # настройки окна
@@ -75,7 +73,7 @@ def bounce(action):
 
 # устанавливаем окно
 root = Tk()
-root.title("PythonicWay Pong")
+root.title("Ping-Pong")
 
 # область анимации
 c = Canvas(root, width=WIDTH, height=HEIGHT, background="#003300")
