@@ -1,7 +1,7 @@
 from tkinter import *
 from math import sqrt
 
-def solver(a,b,c):
+def solver(a, b, c):
     """ Solves quadratic equation and returns the result in formatted string """
     D = b*b - 4*a*c
     if D >= 0:
