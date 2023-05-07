@@ -10,7 +10,56 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\GoogleApps\Project\lvl1\StudentsPerformance .csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\GoogleApps\Project\lvl2\countries of the world.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\GoogleApps\Project\lvl5\Space_Corrected.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\GoogleApps\Project\lvl6\IMDB-Movie-Data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\GoogleApps\Project\lvl7\2.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\GoogleApps\Project\lvl7\cleaned_filename.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\GoogleApps\Project\lvl7\investments_VC.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\GoogleApps\level_1\GoogleApps.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
