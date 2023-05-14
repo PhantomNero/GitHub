@@ -87,6 +87,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\GoogleApps\level_6\cleaned_titanic.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\GoogleApps\level_6\titanic.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
