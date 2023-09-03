@@ -1,4 +1,3 @@
-# создай игру "Лабиринт"!
 import time
 
 from pygame import *
