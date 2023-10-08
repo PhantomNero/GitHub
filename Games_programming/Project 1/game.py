@@ -1,12 +1,17 @@
-# напиши здесь код основного окна игры
+from panda3d.core import loadPrcFileData
 from direct.showbase.ShowBase import ShowBase
-from mapmanager import Mapmanager
+from MapManger import MapManager
 
-class MyApp(ShowBase):
-	def __init__(self):
-		ShowBase.__init__(self)
-		self.land = Mapmanager()
-		base.camLend.setFov(90)
+# Set the window title
+loadPrcFileData("", "window-title My Game")
 
-game = Game()
-game.run()
+class Game(ShowBase):
+    def __init__(self):
+        ShowBase.__init__(self)
+        self.land = MapManager()  # Create an instance of MapManager
+        self.land.loadLand("land.txt")
+        base.camLens.setFov(90)
+
+if __name__ == "__main__":
+    game = Game()
+    game.run()
