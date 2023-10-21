@@ -22,7 +22,7 @@ class Hero:
         self.cameraBind()  # Привязка камеры
         self.accept_events()  # Регистрация обработчиков событий
 
-    def accept_events(self):
+    def cameraBind(self):
         base.disableMouse()  # Отключение мыши
         base.camera.setH(180)  # Установка горизонтального угла обзора камеры
         base.camera.reparentTo(self.hero)  # Привязка камеры к герою
@@ -31,7 +31,7 @@ class Hero:
 
     def cameraUp(self):
         pos = self.hero.getPos()
-        base.mouseInterfaceNode.setPos(-pos[0], -pos[2]-3)
+        base.mouseInterfaceNode.setPos(-pos[0], -pos[1], -pos[2] - 3)
         base.camera.reparentTo(render)
         base.enableMouse()
         self.cameraOn = False
@@ -51,7 +51,7 @@ class Hero:
         x_form = round(self.hero.getX())
         y_form = round(self.hero.getY())
         z_form = round(self.hero.getZ())
-        dx, dy = self.check_dir(angle)
+        dx, dy = self.hero.check_dir(self, angle)
         x_to = x_form + dx
         y_to = y_form + dy
 
