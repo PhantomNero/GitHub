@@ -12,6 +12,6 @@ class Game(ShowBase):
         self.land.loadLand("land.txt")
         base.camLens.setFov(90)
 
-if __name__ == "__main__":
-    game = Game()
-    game.run()
+
+game = Game()
+game.run()
