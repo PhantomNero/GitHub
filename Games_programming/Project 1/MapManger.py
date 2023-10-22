@@ -44,3 +44,23 @@ class MapManager():
                         block = self.addBlock((x, y, z0))
                     x += 1
                 y += 1
+            return x, y
+    def isEmpty(self, pos):
+        # Проверка, является ли указанная позиция пустой
+        blocks = self.findBlocks(pos)
+        if blocks:
+            return False
+        return True
+
+    def findHighestEmpty(self, pos):
+        x, y, z = pos
+        z = 1
+        while not self.isEmpty((x, y, z)):
+            z += 1
+            return x, y, z
+
+    def findBlocks(self, pos):
+        # Поиск блоков в указанной позиции
+        return self.land.findAllMatches("=at=" + str(pos))
+
+#    def buildBlock(self):
