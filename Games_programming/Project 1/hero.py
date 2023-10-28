@@ -78,7 +78,7 @@ class Hero:
         y_form = round(self.hero.getY())
         z_form = round(self.hero.getZ())
         dx, dy = self.hero.check_dir(self, angle)
-        x_to = x_form + dx
+        x_to = x_form + dx  
         y_to = y_form + dy
         return y_to, x_to, z_form
 
