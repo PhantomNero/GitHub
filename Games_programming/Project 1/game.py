@@ -10,7 +10,7 @@ class Game(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
         self.land = MapManager()  # Create an instance of MapManager
-        self.land.loadLand("land.txt")
+        x, y = self.land.loadLand("land.txt")
         self.hero = Hero((x // 2, y // 2, 2), self.land)
         base.camLens.setFov(90)
 
