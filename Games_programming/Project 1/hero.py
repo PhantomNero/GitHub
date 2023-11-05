@@ -19,8 +19,11 @@ key_down = "c"
 key_turn_left = "k"
 key_turn_right = "l"
 
-key_build = "b"
-key_destroy = "v"
+key_save_map = 'g'
+key_load_map = 'h'
+
+key_build = "v"
+key_destroy = "b"
 
 
 class Hero:
@@ -205,4 +208,11 @@ class Hero:
         base.accept(key_build, self.build)
         base.accept(key_destroy, self.destroy)
 
+        base.accept(key_save_map, self.land.saveMap)
+        base.accept(key_load_map, self.land.loadMap)
+
         base.accept(key_switch_camera, self.changeView)
+
+
+
+
