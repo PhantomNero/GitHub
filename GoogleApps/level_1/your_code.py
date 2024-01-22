@@ -1,4 +1,4 @@
-import andas as pd
+import pandas as pd
 
 # Загружаем датафрейм 
 df = pd.read_csv('GoogleApps.csv')
