@@ -1,8 +1,7 @@
-import pandas as pd
+import andas as pd
 
 # Загружаем датафрейм 
 df = pd.read_csv('GoogleApps.csv')
-
 
 # Как называется приложение, расположенное первым в наборе данных?
 print(df.head())
@@ -29,5 +28,3 @@ print('\n', '*' * 100, '\n')
 # *Укажите среднее арифметическое и медиану количества установок приложений (Installs)
 
 print(df.describe())
-
-
