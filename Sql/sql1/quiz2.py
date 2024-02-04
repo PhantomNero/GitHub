@@ -16,11 +16,6 @@ def close():
     conn.commit()
 
 
-def do(query):
-    cursor.execute(query)
-    conn.commit()
-
-
 def create():
     open_db()
     cursor.execute('PRAGMA foreign_keys=on')
@@ -44,6 +39,11 @@ def create():
         FOREIGN KEY(question_id) REFERENCES question(id))''')
 
     close()
+
+
+def do(query):
+    cursor.execute(query)
+    conn.commit()
 
 
 def clear_db():

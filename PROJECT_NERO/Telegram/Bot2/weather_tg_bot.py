@@ -1,10 +1,9 @@
-import requests
 import datetime
-from config import tg_bot_token, open_weather_token
-from aiogram import Bot, types
-from aiogram.dispatcher import Dispatcher
-from aiogram.utils import executor
 
+import requests
+from aiogram import Bot, types, Dispatcher, executor
+
+from config import tg_bot_token, open_weather_token
 
 bot = Bot(token=tg_bot_token)
 dp = Dispatcher(bot)
@@ -51,11 +50,11 @@ async def get_weather(message: types.Message):
             data["sys"]["sunrise"])
 
         await message.reply(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}***\n"
-              f"Погода в городе: {city}\nТемпература: {cur_weather}C° {wd}\n"
-              f"Влажность: {humidity}%\nДавление: {pressure} мм.рт.ст\nВетер: {wind} м/с\n"
-              f"Восход солнца: {sunrise_timestamp}\nЗакат солнца: {sunset_timestamp}\nПродолжительность дня: {length_of_the_day}\n"
-              f"***Хорошего дня!***"
-              )
+                            f"Погода в городе: {city}\nТемпература: {cur_weather}C° {wd}\n"
+                            f"Влажность: {humidity}%\nДавление: {pressure} мм.рт.ст\nВетер: {wind} м/с\n"
+                            f"Восход солнца: {sunrise_timestamp}\nЗакат солнца: {sunset_timestamp}\nПродолжительность дня: {length_of_the_day}\n"
+                            f"***Хорошего дня!***"
+                            )
 
     except:
         await message.reply("\U00002620 Проверьте название города \U00002620")
