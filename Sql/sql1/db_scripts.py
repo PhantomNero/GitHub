@@ -5,7 +5,24 @@ db_name = 'quiz.sqlite'
 conn = None
 cursor = None
 
+
 def check_answer(q_id, ans_text):
+    querry = '''SELECT question_id.answer
+    FROM quiz_content, question
+    WHERE quiz_content.id = ?
+    AND quiz_content.question_id = question_id
+    '''
+    open()
+    cursor.execute(querry, str(q_id))
+    result = cursor.fetchone()
+    close()
+    if result is None:
+        return False
+    else:
+        if result[0] == ans_text:
+            return True
+        else:
+            return False
 
 
 def open():
